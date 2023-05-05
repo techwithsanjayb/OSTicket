@@ -1,0 +1,84 @@
+
+{% extends 'TKTUsers/base.html' %}
+{% load static %}
+{% block admin_view_agent_list %}
+<div class="container p-5 ">
+    <div class="text-center mt-5 wow fadeInUp" data-wow-delay="0.1s">
+        <h6 class="section-title bg-white text-center text-primary px-3">
+            Agent List
+        </h6>
+        <h1 class="mb-3">Agent List</h1>
+    </div>
+
+  <div class="row mb-4">
+    <div class="col-6">
+      <h5 class="text-start mb-4">
+        <a
+          class="text-white btn btn-info"
+          href="{% url 'TKTAdmin:admin_dashboard' %}"
+          style="background-color: rgb(63, 127, 165); border-radius: 10px"
+          >Back to Dashboard</a
+        >
+      </h5>
+    </div>
+    <div class="col-6">
+      <h5 class="text-end mb-4">
+        <a
+          class="text-white btn btn-info"
+          href="#"
+          style="background-color: rgb(63, 127, 165); border-radius: 10px"
+          >Create New Agent
+        </a>
+      </h5>
+    </div>
+  </div>
+
+   <div>
+        {% if messages %}
+        {% for message in messages %}
+        <p {% if message.tags %} class="alert alert-{{message.tags}}" {% endif %}>{{message}}</p>
+        {% endfor %}
+        {% endif %}
+  </div>
+  <div class="row d-flex justify-content-center align-items-center">
+    <table class="table table-striped" id="mytable" style="width: 100%">
+      <thead>
+        <tr>
+          <th>S.No.</th>
+          <th>Name</th>
+          <th>Role</th>
+          <th>Created Date </th>
+          <th>Status</th>
+          <th>Expert In</th>
+          <th>Edit</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for data in Agent_obj %}
+        <tr>
+            <td>{{forloop.counter}}</td>
+            <td>{{data.Agent_name}}</td>
+            <td>{{data.Agent_role}}</td>
+            <td>{{data.Agent_created_date}}</td>
+            <td>{{data.Agent_status}}</td>
+            <td>{{data.Agent_technology_expert}}</td>
+            <td><a href="#">Edit</a></td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- CIP Server End -->
+
+<script>
+  $(document).ready(function () {
+    $("#mytable").dataTable({
+      buttons: ["copy", "csv", "excel", "pdf", "print"],
+      info: true,
+      paging: true,
+    });
+  });
+</script>
+{% endblock %}

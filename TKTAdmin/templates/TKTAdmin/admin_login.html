@@ -1,0 +1,49 @@
+{% extends 'TKTUsers/base.html'%}
+{% block adminlogin %}
+
+<div class="container my-5 rounded-8">
+           <div class="text-center mt-5 wow fadeInUp" data-wow-delay="0.1s">
+            <h6 class="section-title bg-white text-center text-primary px-3">Admin Login</h6>
+            <h1 class="mb-4">Admin Login</h1>
+        </div>
+     <div class="row justify-content-md-center">
+            {% if messages %}
+                    {% for message in messages %}
+                        <div class="col-8 m-0 p-2 ps-4 fs-6 fw-semibold alert alert-{{message.extra_tags}}">{{message}}</div>
+                    {% endfor %}
+                {% endif %}
+            <div style="color:red" class="col-8">
+                {% if UserLoginForm_obj.non_field_errors %}
+                    {% for error in UserLoginForm_obj.non_field_errors %}
+                        <div class="alert alert-danger">
+                            <strong >{{ error|escape }}</strong>
+                        </div>
+                    {% endfor %}
+                {% endif %}
+            </div>
+     </div>
+    <div class="row justify-content-md-center">
+         <div class='col-8 card px-4 py-8 mx-5 shadow mb-5' style="background-color: #6C3C8203; border-radius:10px !important" >
+              <form method="POST" autocomplete="off" novalidate>
+                  {% csrf_token %}
+
+              <div class="form-group my-3">
+                    <label for="inputEmail" class="mb-1 fs-5 fw-bold px-1">Email Address</label>
+                    <div>{{ UserLoginForm_obj.username }}</div>
+                    <span class="text-danger">{{ UserLoginForm_obj.username.errors}}</span>
+              </div>
+
+             <div class="form-group my-3">
+                    <label for="inputPassword" class="mb-1 fs-5 fw-bold px-1">Password <i class="fa fa-question-circle fa-sm" aria-hidden="true" title="Password must contain minimum 8 characters with minimum 1 uppercase character, 1 lowercase character, 1 number and 1 special symbol"></i></label>
+                    <div>{{ UserLoginForm_obj.password }} </div>
+                    <span class="text-danger">{{ UserLoginForm_obj.password.errors}}</span>
+             </div>
+              <div class="col-2 ">
+                  <button type="submit" class="btn btn-primary mt-2">Login</button>
+              </div>
+                  </form>
+         </div>
+    </div>
+</div>
+
+{% endblock %}

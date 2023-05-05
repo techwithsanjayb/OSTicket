@@ -1,0 +1,61 @@
+{% extends 'TKTUsers/base.html' %}
+{% load static %}
+{% block admin_edit_issue_category %}
+<div class="container h-custom">
+    <div class="text-center mt-5 wow fadeInUp" data-wow-delay="0.1s">
+        <h6 class="section-title bg-white text-center text-primary px-3">
+            Edit Issue Category
+        </h6>
+        <h1 class="mb-3">Edit Issue Category</h1>
+    </div>
+
+  <div class="row mb-4">
+    <div class="col-6">
+      <h5 class="text-start mb-4">
+        <a
+          class="text-white btn btn-info"
+          href="{% url 'TKTAdmin:admin_dashboard' %}"
+          style="background-color: rgb(63, 127, 165); border-radius: 10px"
+          >Back to Dashboard</a
+        >
+      </h5>
+    </div>
+    <div class="col-6">
+      <h5 class="text-end mb-4">
+        <a
+          class="text-white btn btn-info"
+          href="{% url 'TKTAdmin:view_Issue_Category' %}"
+          style="background-color: rgb(63, 127, 165); border-radius: 10px"
+          >Back to List of Issue Category
+        </a>
+      </h5>
+    </div>
+  </div>
+
+   <div>
+        {% if messages %}
+        {% for message in messages %}
+        <p {% if message.tags %} class="alert alert-{{message.tags}}" {% endif %}>{{message}}</p>
+        {% endfor %}
+        {% endif %}
+  </div>
+    <div class="row justify-content-md-center">
+         <div class='col-8 card px-4 py-8 mx-5 shadow mb-5' style="background-color: #6C3C8203; border-radius:10px !important" >
+              <form method="POST" autocomplete="off" novalidate>
+                  {% csrf_token %}
+
+              <div class="form-group my-3">
+                    <label for="technology_name" class="mb-3 fs-5 fw-bold px-1">Issue Category Name</label>
+                    <div>{{ Issue_CategoryForm_obj.Issue_Category_name }}</div>
+                    <span class="text-danger">{{ Issue_CategoryForm_obj.Issue_Category_name.errors}}</span>
+              </div>
+
+              <div class="col-2 mb-3">
+                  <button type="submit" class="btn btn-primary mt-2 rounded-3">Edit </button>
+              </div>
+                  </form>
+         </div>
+    </div>
+</div>
+
+{% endblock %}
