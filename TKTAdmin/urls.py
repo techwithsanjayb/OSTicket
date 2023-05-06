@@ -31,5 +31,10 @@ urlpatterns = [
     path('edit_Issue_Category/<int:id>', edit_Issue_Category, name="edit_Issue_Category"),
 
     path('view_agent_list', view_agent_list, name="view_agent_list"),
+    path('create_agent_list', create_agent_list, name="create_agent_list"),
+    path('edit_agent_list/<int:id>', edit_agent_list, name="edit_agent_list"),
+
+
+    path('view_tickets_list', view_tickets_list, name="view_tickets_list"),
 
 ]

@@ -16,7 +16,7 @@
         <a
           class="text-white btn btn-info"
           href="{% url 'TKTAdmin:admin_dashboard' %}"
-          style="background-color: rgb(63, 127, 165); border-radius: 10px"
+          style="background-color: #886363; border-radius: 10px"
           >Back to Dashboard</a
         >
       </h5>
@@ -25,14 +25,13 @@
       <h5 class="text-end mb-4">
         <a
           class="text-white btn btn-info"
-          href="#"
-          style="background-color: rgb(63, 127, 165); border-radius: 10px"
+          href="{% url 'TKTAdmin:create_agent_list' %}"
+          style="background-color: #886363; border-radius: 10px"
           >Create New Agent
         </a>
       </h5>
     </div>
   </div>
-
    <div>
         {% if messages %}
         {% for message in messages %}
@@ -61,8 +60,8 @@
             <td>{{data.Agent_role}}</td>
             <td>{{data.Agent_created_date}}</td>
             <td>{{data.Agent_status}}</td>
-            <td>{{data.Agent_technology_expert}}</td>
-            <td><a href="#">Edit</a></td>
+            <td>{{data.Agent_expert}}</td>
+            <td><a href="{% url 'TKTAdmin:edit_agent_list' data.id %}">Edit</a></td>
         </tr>
         {% endfor %}
       </tbody>

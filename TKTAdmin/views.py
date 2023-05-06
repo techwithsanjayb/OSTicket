@@ -259,7 +259,7 @@ def create_Issue_Category(request):
                       {'Issue_CategoryForm_obj': Issue_CategoryForm_obj})
 
 
-def edit_Issue_Category(request,id):
+def edit_Issue_Category(request, id):
     if request.method == 'POST':
         print("POST CALLING")
         Issue_Category_obj = Issue_Category.objects.get(pk=id)
@@ -287,5 +287,55 @@ def edit_Issue_Category(request,id):
 
 def view_agent_list(request):
     Agent_obj = Agent.objects.all()
+    # print(Agent_obj)
+    # for value in Agent_obj:
+    #     techexpert_obj = value.Agent_technology_expert.all()
+    #     # print(techexpert_obj[0].technology_name)
     return render(request, 'TKTAdmin/view_agent_list.html',
                   {'Agent_obj': Agent_obj})
+
+
+def create_agent_list(request):
+    if request.method == 'POST':
+        AgentForm_obj = AgentForm(request.POST)
+        if AgentForm_obj.is_valid():
+            AgentForm_obj.save()
+            messages.success(request, "Agent Created Successfully")
+            return redirect('TKTAdmin:view_agent_list')
+        else:
+            messages.error(request, "Invalid Data Entered")
+            return render(request, 'TKTAdmin/create_agent.html',
+                          {'AgentForm_obj': AgentForm_obj})
+    else:
+        AgentForm_obj = AgentForm()
+        return render(request, 'TKTAdmin/create_agent.html',
+                      {'AgentForm_obj': AgentForm_obj})
+
+
+def edit_agent_list(request,id):
+    if request.method == 'POST':
+        Agent_obj = Agent.objects.get(pk=id)
+        AgentForm_obj = AgentForm(request.POST, instance=Agent_obj)
+        if AgentForm_obj.is_valid():
+            AgentForm_obj.save()
+            messages.success(request, "Edited Successfully")
+            return redirect('TKTAdmin:view_agent_list')
+        else:
+            messages.error(request, "Invalid Data Entered")
+            return render(request, 'TKTAdmin/edit_agent.html',
+                          {'AgentForm_obj': AgentForm_obj})
+    else:
+        Agent_obj = Agent.objects.get(pk=id)
+        AgentForm_obj = AgentForm(instance=Agent_obj)
+        return render(request, 'TKTAdmin/edit_agent.html',
+                      {'AgentForm_obj': AgentForm_obj})
+
+
+###################################################
+
+
+def view_tickets_list(request):
+    TicketDetail_obj = TicketDetail.objects.all()
+    Ticket_status_obj = Ticket_status.objects.all()
+    return render(request, 'TKTAdmin/view_TicketDetail.html',
+                  {'TicketDetail_obj': TicketDetail_obj,'Ticket_status_obj':Ticket_status_obj})

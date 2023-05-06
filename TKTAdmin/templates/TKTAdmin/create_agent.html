@@ -1,13 +1,13 @@
 {% extends 'TKTUsers/base.html' %}
 {% load static %}
-{% block admin_create_agent_role %}
+{% block admin_create_agent%}
 
 <div class="container h-custom">
     <div class="text-center mt-5 wow fadeInUp" data-wow-delay="0.1s">
         <h6 class="section-title bg-white text-center text-primary px-3">
             Create Agent
         </h6>
-        <h1 class="mb-3">Create Agent </h1>
+        <h1 class="mb-3">Create Agent</h1>
     </div>
 
   <div class="row mb-4">
@@ -25,9 +25,9 @@
       <h5 class="text-end mb-4">
         <a
           class="text-white btn btn-info"
-          href="{% url 'TKTAdmin:view_agent_role' %}"
+          href="{% url 'TKTAdmin:view_agent_list' %}"
           style="background-color: #886363; border-radius: 10px"
-          >Back to List of Roles
+          >Back to Agent List
         </a>
       </h5>
     </div>
@@ -46,13 +46,29 @@
                   {% csrf_token %}
 
               <div class="form-group my-3">
-                    <label for="inputEmail" class="mb-3 fs-5 fw-bold px-1">Agent Role Name</label>
-                    <div>{{ AgentRoleForm_obj.Agent_Role_name }}</div>
-                    <span class="text-danger">{{ AgentRoleForm_obj.Agent_Role_name.errors}}</span>
+                    <label for="inputEmail" class="mb-3 fs-5 fw-bold px-1">Enter Name</label>
+                    <div>{{ AgentForm_obj.Agent_name }}</div>
+                    <span class="text-danger">{{ AgentForm_obj.Agent_name.errors}}</span>
+              </div>
+                  <div class="form-group my-3">
+                    <label for="inputEmail" class="mb-3 fs-5 fw-bold px-1">Enter Status</label>
+                    <div>{{ AgentForm_obj.Agent_status }}</div>
+                    <span class="text-danger">{{ AgentForm_obj.Agent_status.errors}}</span>
+              </div>
+                <div class="form-group my-3">
+                    <label for="inputEmail" class="mb-3 fs-5 fw-bold px-1">Enter Role</label>
+                    <div>{{ AgentForm_obj.Agent_role }}</div>
+                    <span class="text-danger">{{ AgentForm_obj.Agent_role.errors}}</span>
+              </div>
+                         <div class="form-group my-3">
+                    <label for="inputEmail" class="mb-3 fs-5 fw-bold px-1">Enter Technology Stack </label>
+                    <div>{{ AgentForm_obj.Agent_expert }}</div>
+                    <span class="text-danger">{{ AgentForm_obj.Agent_expert.errors}}</span>
               </div>
 
+
               <div class="col-2 mb-3">
-                  <button type="submit" class="btn btn-primary mt-2 rounded-3">Create Role</button>
+                  <button type="submit" class="btn btn-primary mt-2 rounded-3">Create Agent</button>
               </div>
                   </form>
          </div>

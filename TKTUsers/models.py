@@ -106,8 +106,8 @@ class Agent(models.Model):
         ('Active', 'ACTIVE'), ('Deactivated', 'DEACTIVATED'))
     Agent_status = models.CharField(
         choices=Agent_status_choice, max_length=20, )
-    Agent_technology_expert = models.ManyToManyField(
-        technology_stack, related_name="Agent_technology_expert")
+    Agent_expert = models.ForeignKey(
+        technology_stack, on_delete=models.CASCADE)
 
     class Meta:
         verbose_name_plural = 'Agent_name'
