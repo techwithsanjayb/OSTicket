@@ -2,7 +2,7 @@
 {% extends 'TKTUsers/base.html' %}
 {% load static %}
 {% block admin_view_ticket_list %}
-<div class="container p-5 ">
+<div class="container-fluid p-5 ">
     <div class="text-center mt-5 wow fadeInUp" data-wow-delay="0.1s">
         <h6 class="section-title bg-white text-center text-primary px-3">
             Ticket List
@@ -49,7 +49,10 @@
           <th>Website Description </th>
           <th>Website Category</th>
           <th>Issue Related To</th>
+          <th>Ticket Raised By</th>
           <th>Website Technology</th>
+         <th>Ticket Assigned to</th>
+            <th>Status</th>
           <th>Assign</th>
         </tr>
       </thead>
@@ -63,8 +66,11 @@
             <td>{{data.website_description}}</td>
             <td>{{data.website_category}}</td>
             <td>{{data.Issue_Related_To}}</td>
+            <td>{{data.ticket_raised_by}}</td>
             <td>{{data.website_technology}}</td>
-            <td><a href="#">Assign</a></td>
+            <td>{{data.ticket_assigned_to}}</td>
+            <td>{{data.ticket_status}}</td>
+            <td><a href="{% url 'TKTAdmin:assign_ticket' data.id%}">Assign</a></td>
         </tr>
         {% endfor %}
       </tbody>

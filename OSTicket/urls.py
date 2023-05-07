@@ -21,4 +21,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('TKTUsers.urls'), name="TKTUsers"),
     path('TKTAdmin/', include('TKTAdmin.urls'), name="TKTAdmin"),
+    path('TKTAgent/', include('TKTAgent.urls'), name="TKTAgent"),
 ]

@@ -10,30 +10,27 @@ def home(request):
 
 
 def admin_login(request):
-    if not request.user.is_authenticated:
-        if request.method == 'POST':
-            UserLoginForm_obj = UserLoginForm(
-                request=request, data=request.POST)
-            if UserLoginForm_obj.is_valid():
-                uname = UserLoginForm_obj.cleaned_data['username']
-                passwd = UserLoginForm_obj.cleaned_data['password']
-                user = authenticate(username=uname, password=passwd)
-                if user is not None:
-                    login(request, user)
-                    messages.success(request, "Login Successfully")
-                    return redirect('TKTAdmin:admin_dashboard')
-                else:
-                    messages.error(request, "User does not exist")
-                    return redirect('TKTAdmin:admin_login')
+    if request.method == 'POST':
+        UserLoginForm_obj = UserLoginForm(
+            request=request, data=request.POST)
+        if UserLoginForm_obj.is_valid():
+            uname = UserLoginForm_obj.cleaned_data['username']
+            passwd = UserLoginForm_obj.cleaned_data['password']
+            user = authenticate(username=uname, password=passwd)
+            if user is not None:
+                login(request, user)
+                messages.success(request, "Login Successfully")
+                return redirect('TKTAdmin:admin_dashboard')
             else:
-                messages.error(
-                    request, "Invalid Details . Please login with correct details")
+                messages.error(request, "User does not exist")
                 return redirect('TKTAdmin:admin_login')
         else:
-            UserLoginForm_obj = UserLoginForm()
-            return render(request, 'TKTAdmin/admin_login.html', {'UserLoginForm_obj': UserLoginForm_obj})
+            messages.error(
+                request, "Invalid Details . Please login with correct details")
+            return redirect('TKTAdmin:admin_login')
     else:
-        return redirect('TKTAdmin:admin_login')
+        UserLoginForm_obj = UserLoginForm()
+        return render(request, 'TKTAdmin/admin_login.html', {'UserLoginForm_obj': UserLoginForm_obj})
 
 
 def admin_dashboard(request):
@@ -312,7 +309,7 @@ def create_agent_list(request):
                       {'AgentForm_obj': AgentForm_obj})
 
 
-def edit_agent_list(request,id):
+def edit_agent_list(request, id):
     if request.method == 'POST':
         Agent_obj = Agent.objects.get(pk=id)
         AgentForm_obj = AgentForm(request.POST, instance=Agent_obj)
@@ -336,6 +333,29 @@ def edit_agent_list(request,id):
 
 def view_tickets_list(request):
     TicketDetail_obj = TicketDetail.objects.all()
-    Ticket_status_obj = Ticket_status.objects.all()
-    return render(request, 'TKTAdmin/view_TicketDetail.html',
-                  {'TicketDetail_obj': TicketDetail_obj,'Ticket_status_obj':Ticket_status_obj})
+    # Ticket_status_obj = Ticket_status.objects.all()
+    return render(request, 'TKTAdmin/view_TicketDetail.html', {'TicketDetail_obj': TicketDetail_obj})
+
+
+def assign_ticket(request, id):
+    if request.method=="POST":
+        TicketDetail_obj = TicketDetail.objects.get(pk=id)
+        Ticket_Form_obj = Ticket_Form_Admin(request.POST,instance=TicketDetail_obj)
+        if Ticket_Form_obj.is_valid():
+            temp_obj = Ticket_Form_obj.save(commit=False)
+            temp_obj.ticket_assigned_to = Ticket_Form_obj.cleaned_data['ticket_assigned_to']
+            temp_obj.ticket_status = Ticket_Form_obj.cleaned_data['ticket_status']
+            temp_obj.save()
+
+            messages.success(request,"Assigned  Successfully")
+            return redirect('TKTAdmin:view_tickets_list')
+        else:
+            messages.error(request,"Invalid Data ")
+            return render(request, 'TKTAdmin/assign_Ticket.html',
+                          {'Ticket_Form_obj': Ticket_Form_obj})
+    else:
+        TicketDetail_obj = TicketDetail.objects.get(pk=id)
+        Ticket_Form_obj = Ticket_Form_Admin(instance=TicketDetail_obj)
+        return render(request, 'TKTAdmin/assign_Ticket.html',
+                      {'Ticket_Form_obj': Ticket_Form_obj})
+

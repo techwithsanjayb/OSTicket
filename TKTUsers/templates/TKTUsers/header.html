@@ -82,6 +82,9 @@
       <div class="collapse navbar-collapse" id="navbarCollapse">
          <div class="navbar-nav ms-auto p-4 p-lg-0">
                 <a href="#" class="nav-item nav-link active">Home</a>
+             <a href="{% url 'TKTAdmin:admin_login' %}" class="nav-item nav-link active">Admin Login</a>
+             <a href="{% url 'TKTUsers:user_login' %}" class="nav-item nav-link active">User Login</a>
+
                 {% comment %} <div class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Menu</a>
                     <div class="dropdown-menu fade-down m-0">

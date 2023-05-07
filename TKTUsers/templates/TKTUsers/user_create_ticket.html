@@ -1,0 +1,57 @@
+{% extends 'TKTUsers/base.html'%}
+{% block user_create_ticket %}
+
+<div class="container-fluid p-5 ">
+        <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+         <h6 class="section-title bg-white text-center text-primary px-3">Create Ticket</h6>
+         <h1 class="mb-5">Create Ticket</h1>
+     </div>
+      <div class="row d-flex justify-content-center  align-items-center rounded-3">
+        <div class="col-md-12 col-lg-10 rounded-9 bg-white p-5 shadow rounded-3 ">
+           <div style="color:red">{% if messages %}
+            {% for message in messages %}
+                <small {% if message.tags %} class = "{{message.tags}}" >{{message}}{% endif %}</small>
+            {% endfor %}
+             {% endif %}
+           </div>
+
+
+            <form class="row g-3 mt-3" method="POST" action=" " enctype = "multipart/form-data"  novalidate>
+                {% csrf_token %}
+
+                <div class="col-md-6">
+                  <label for="inputEmail4" class="form-label fs-5 ">Website Name</label>
+                  {{Ticket_Form_obj.websitename}}
+                </div>
+                <div class="col-md-6">
+                  <label for="inputPassword4" class="form-label fs-5"> Website URL </label>
+                  {{Ticket_Form_obj.websiteurl}}
+                </div>
+
+
+                  <div class="col-md-6 mt-5">
+                    <label for="inputPassword4" class="form-label fs-5">Website Category</label>
+                    {{Ticket_Form_obj.website_category}}
+                  </div>
+                <div class="col-6 mt-5">
+                        <label for="inputAddress" class="form-label fs-5">Issue Related To</label>
+                        {{Ticket_Form_obj.Issue_Related_To}}
+                      </div>
+                 <div class="col-6 mt-5">
+                    <label for="inputEmail4" class="form-label fs-5">Website Technology</label>
+                    {{Ticket_Form_obj.website_technology}}
+                  </div>
+                     <div class="col-6 mt-5">
+                    <label for="inputPassword4" class="form-label fs-5">Website Description</label>
+                    {{Ticket_Form_obj.website_description}}
+                  </div>
+                <div class="col-12 justify-content-center  text-center">
+                  <button type="submit" class="btn btn-primary">Create Ticket</button>
+                </div>
+              </form>
+         </div>
+
+      </div>
+    </div>
+
+{% endblock %}

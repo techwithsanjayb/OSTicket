@@ -117,6 +117,44 @@ class AgentForm(forms.ModelForm):
 
 ######################################################################################
 
+# class Ticket_Form(forms.ModelForm):
+# websitename = forms.CharField(label="Enter Website Name", max_length=100, widget=forms.TextInput(
+#     attrs={'style': 'border-color:grey', 'placeholder': 'Enter Website  Name',
+#            'class': 'form-control form-control-lg',
+#            'autocomplete': 'off'}))
+#
+# websiteurl = forms.CharField(label="Enter Website URL", max_length=100, widget=forms.TextInput(
+#     attrs={'style': 'border-color:grey', 'placeholder': 'Enter Website URL',
+#            'class': 'form-control form-control-lg',
+#            'autocomplete': 'off'}))
+#
+# website_description = forms.CharField(label="Enter Website URL", max_length=100, widget=forms.TextInput(
+#     attrs={'style': 'border-color:grey', 'placeholder': 'Enter Website URL',
+#            'class': 'form-control form-control-lg',
+#            'autocomplete': 'off'}))
+#
+# website_category = forms.ModelChoiceField(required=True, queryset=Category.objects.all(),
+#                                       widget=forms.Select(
+#                                           attrs={'class': 'form-control', 'id': 'website_category',
+#                                                  'autocomplete': 'off'}))
+#
+# Issue_Related_To = forms.ModelChoiceField(required=True, queryset=Issue_Category.objects.all(),
+#                                           widget=forms.Select(
+#                                               attrs={'class': 'form-control', 'id': 'Issue_Related_To',
+#                                                      'autocomplete': 'off'}))
+#
+# categories = forms.ModelMultipleChoiceField(queryset=technology_stack.objects.all(), widget=forms.CheckboxSelectMultiple)
+
+
+# class Meta:
+#     model = TicketDetail
+#     fields = ['websitename', 'websiteurl', 'website_description', 'website_technology', 'website_category',
+#               'Issue_Related_To','ticket_remark','ticket_raised_by','ticket_assigned_to','ticket_status']
+
+
+############################################
+
+
 class Ticket_Form(forms.ModelForm):
     websitename = forms.CharField(label="Enter Website Name", max_length=100, widget=forms.TextInput(
         attrs={'style': 'border-color:grey', 'placeholder': 'Enter Website  Name',
@@ -133,20 +171,93 @@ class Ticket_Form(forms.ModelForm):
                'class': 'form-control form-control-lg',
                'autocomplete': 'off'}))
 
-    website_category = forms.ModelChoiceField(required=True, queryset=Category.objects.all(),
-                                          widget=forms.Select(
-                                              attrs={'class': 'form-control', 'id': 'website_category',
-                                                     'autocomplete': 'off'}))
+    website_category = forms.ModelChoiceField(queryset=Category.objects.all(),
+                                              widget=forms.Select(
+                                                  attrs={'class': 'form-control', 'id': 'website_category',
+                                                         'autocomplete': 'off'}))
 
-    Issue_Related_To = forms.ModelChoiceField(required=True, queryset=Issue_Category.objects.all(),
+    website_technology = forms.ModelChoiceField(queryset=technology_stack.objects.all(),
+                                                widget=forms.Select(
+                                                    attrs={'class': 'form-control', 'id': 'website_category',
+                                                           'autocomplete': 'off'}))
+
+    Issue_Related_To = forms.ModelChoiceField(queryset=Issue_Category.objects.all(),
                                               widget=forms.Select(
                                                   attrs={'class': 'form-control', 'id': 'Issue_Related_To',
                                                          'autocomplete': 'off'}))
 
-    categories = forms.ModelMultipleChoiceField(queryset=technology_stack.objects.all(), widget=forms.CheckboxSelectMultiple)
+    #
+    # ticket_remark = forms.CharField(label="Enter Ticket Remark", max_length=100, widget=forms.TextInput(
+    #     attrs={'style': 'border-color:grey', 'placeholder': 'Enter Remark',
+    #            'class': 'form-control form-control-lg',
+    #            'autocomplete': 'off'}))
 
+    # ticket_assigned_to = forms.ModelChoiceField(queryset=Agent.objects.all(),
+    #                                             widget=forms.Select(
+    #                                                 attrs={'class': 'form-control', 'id': 'ticket_assigned_to',
+    #                                                        'autocomplete': 'off'}))
+    #
+    # ticket_status = forms.ModelChoiceField( queryset=Ticket_status_choice.objects.all(),
+    #                                        widget=forms.Select(
+    #                                            attrs={'class': 'form-control', 'id': 'ticket_status',
+    #                                                   'autocomplete': 'off'}))
 
     class Meta:
         model = TicketDetail
-        fields = ['websitename', 'websiteurl', 'website_description', 'website_technology', 'website_category',
-                  'Issue_Related_To']
+        fields = ['websitename', 'websiteurl', 'website_description', 'website_category',
+                  'Issue_Related_To', 'website_technology']
+
+
+#####################################################################
+
+
+class Ticket_Form_Admin(forms.ModelForm):
+    websitename = forms.CharField(label="Enter Website Name", max_length=100, widget=forms.TextInput(
+        attrs={'style': 'border-color:grey', 'placeholder': 'Enter Website  Name',
+               'class': 'form-control form-control-lg',
+               'autocomplete': 'off'}))
+
+    websiteurl = forms.CharField(label="Enter Website URL", max_length=100, widget=forms.TextInput(
+        attrs={'style': 'border-color:grey', 'placeholder': 'Enter Website URL',
+               'class': 'form-control form-control-lg',
+               'autocomplete': 'off'}))
+
+    website_description = forms.CharField(label="Enter Website URL", max_length=100, widget=forms.TextInput(
+        attrs={'style': 'border-color:grey', 'placeholder': 'Enter Website URL',
+               'class': 'form-control form-control-lg',
+               'autocomplete': 'off'}))
+
+    website_category = forms.ModelChoiceField(queryset=Category.objects.all(),
+                                              widget=forms.Select(
+                                                  attrs={'class': 'form-control', 'id': 'website_category',
+                                                         'autocomplete': 'off'}))
+
+    website_technology = forms.ModelChoiceField(queryset=technology_stack.objects.all(),
+                                                widget=forms.Select(
+                                                    attrs={'class': 'form-control', 'id': 'website_category',
+                                                           'autocomplete': 'off'}))
+
+    Issue_Related_To = forms.ModelChoiceField(queryset=Issue_Category.objects.all(),
+                                              widget=forms.Select(
+                                                  attrs={'class': 'form-control', 'id': 'Issue_Related_To',
+                                                         'autocomplete': 'off'}))
+    #
+    # ticket_remark = forms.CharField(label="Enter Ticket Remark", max_length=100, widget=forms.TextInput(
+    #     attrs={'style': 'border-color:grey', 'placeholder': 'Enter Remark',
+    #            'class': 'form-control form-control-lg',
+    #            'autocomplete': 'off'}))
+
+    ticket_assigned_to = forms.ModelChoiceField(queryset=Agent.objects.all(),
+                                                widget=forms.Select(
+                                                    attrs={'class': 'form-control', 'id': 'ticket_assigned_to',
+                                                           'autocomplete': 'off'}))
+
+    ticket_status = forms.ModelChoiceField( queryset=Ticket_status_choice.objects.all(),
+                                           widget=forms.Select(
+                                               attrs={'class': 'form-control', 'id': 'ticket_status',
+                                                      'autocomplete': 'off'}))
+
+    class Meta:
+        model = TicketDetail
+        fields = ['websitename', 'websiteurl', 'website_description', 'website_category',
+                  'Issue_Related_To', 'website_technology']

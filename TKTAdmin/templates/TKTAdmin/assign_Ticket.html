@@ -1,0 +1,82 @@
+{% extends 'TKTUsers/base.html' %}
+{% load static %}
+{% block admin_assign_ticket %}
+<div class="container p-5 ">
+    <div class="text-center mt-5 wow fadeInUp" data-wow-delay="0.1s">
+        <h6 class="section-title bg-white text-center text-primary px-3">
+            Assign Ticket
+        </h6>
+        <h1 class="mb-3">Assign Ticket</h1>
+    </div>
+
+  <div class="row mb-4">
+    <div class="col-6">
+      <h5 class="text-start mb-4">
+        <a
+          class="text-white btn btn-info"
+          href="{% url 'TKTAdmin:admin_dashboard' %}"
+          style="background-color: #886363; border-radius: 10px"
+          >Back to Dashboard</a
+        >
+      </h5>
+    </div>
+    <div class="col-6">
+      <h5 class="text-end mb-4">
+        <a
+          class="text-white btn btn-info"
+          href="{% url 'TKTAdmin:view_tickets_list' %}"
+          style="background-color: #886363; border-radius: 10px"
+          >Back to Ticket List
+        </a>
+      </h5>
+    </div>
+  </div>
+   <div>
+        {% if messages %}
+        {% for message in messages %}
+        <p {% if message.tags %} class="alert alert-{{message.tags}}" {% endif %}>{{message}}</p>
+        {% endfor %}
+        {% endif %}
+  </div>
+    <form method="POST">
+        {% csrf_token %}
+        <div class="row">
+        <div class="col-6">Website Name</div>
+        <div class="col-6">{{Ticket_Form_obj.websitename}}</div>
+    </div>
+    <div class="row">
+        <div class="col-6">Website URL</div>
+        <div class="col-6">{{Ticket_Form_obj.websiteurl}}</div>
+    </div>
+    <div class="row">
+        <div class="col-6">Website Description </div>
+        <div class="col-6">{{Ticket_Form_obj.website_description}}</div>
+    </div>
+    <div class="row">
+        <div class="col-6">Website Category</div>
+        <div class="col-6">{{Ticket_Form_obj.website_category}}</div>
+    </div>
+    <div class="row">
+        <div class="col-6">Issue Related To</div>
+        <div class="col-6">{{Ticket_Form_obj.Issue_Related_To}}</div>
+    </div>
+     <div class="row">
+        <div class="col-6">Website Technology</div>
+        <div class="col-6">{{Ticket_Form_obj.website_technology}}</div>
+    </div>
+        <div class="row">
+        <div class="col-6">Assign to</div>
+        <div class="col-6">{{Ticket_Form_obj.ticket_assigned_to}}</div>
+    </div>
+    <div class="row">
+        <div class="col-6">Status</div>
+        <div class="col-6">{{Ticket_Form_obj.ticket_status}}</div>
+    </div>
+        <input class="btn btn-primary" type="submit" value="Assign" />
+    </form>
+
+
+</div>
+
+
+{% endblock %}

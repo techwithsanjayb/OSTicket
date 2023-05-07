@@ -1,0 +1,328 @@
+06/05/2023 23:37:44--http--127.0.0.1--POST--/user_create_ticket--user@cdac.in---'<tr>
+    <th><label for="id_websitename">Enter Website Name:</label></th>
+    <td>
+      
+      <input type="text" name="websitename" value="Bhahsanet ki website" style="border-color:grey" placeholder="Enter Website  Name" class="form-control form-control-lg" autocomplete="off" maxlength="100" required id="id_websitename">
+      
+      
+    </td>
+  </tr>
+
+  <tr>
+    <th><label for="id_websiteurl">Enter Website URL:</label></th>
+    <td>
+      
+      <input type="text" name="websiteurl" value="bhashanet.in" style="border-color:grey" placeholder="Enter Website URL" class="form-control form-control-lg" autocomplete="off" maxlength="100" required id="id_websiteurl">
+      
+      
+    </td>
+  </tr>
+
+  <tr>
+    <th><label for="id_website_description">Enter Website URL:</label></th>
+    <td>
+      
+      <input type="text" name="website_description" value="dasdasdasda" style="border-color:grey" placeholder="Enter Website URL" class="form-control form-control-lg" autocomplete="off" maxlength="100" required id="id_website_description">
+      
+      
+    </td>
+  </tr>
+
+  <tr>
+    <th><label for="website_category">Website category:</label></th>
+    <td>
+      
+      <select name="website_category" class="form-control" id="website_category" autocomplete="off" required>
+  <option value="">---------</option>
+
+  <option value="1">Central Gov</option>
+
+  <option value="2" selected>State Gov</option>
+
+  <option value="3">Private GOV</option>
+
+</select>
+      
+      
+    </td>
+  </tr>
+
+  <tr>
+    <th><label for="Issue_Related_To">Issue related to:</label></th>
+    <td>
+      
+      <select name="Issue_Related_To" class="form-control" id="Issue_Related_To" autocomplete="off" required>
+  <option value="">---------</option>
+
+  <option value="1" selected>DOmain Name UA issue</option>
+
+  <option value="2">Translation issue</option>
+
+  <option value="3">Web server issue</option>
+
+  <option value="4">SSL issue</option>
+
+</select>
+      
+      
+    </td>
+  </tr>
+
+  <tr>
+    <th><label for="id_ticket_remark">Enter Ticket Remark:</label></th>
+    <td>
+      <ul class="errorlist"><li>This field is required.</li></ul>
+      <input type="text" name="ticket_remark" style="border-color:grey" placeholder="Enter Remark" class="form-control form-control-lg" autocomplete="off" maxlength="100" required id="id_ticket_remark">
+      
+      
+    </td>
+  </tr>
+
+  <tr>
+    <th><label for="id_ticket_raised_by">Ticket raised by:</label></th>
+    <td>
+      
+      <select name="ticket_raised_by" id="id_ticket_raised_by">
+  <option value="" selected>---------</option>
+
+  <option value="1">sanjayb</option>
+
+  <option value="2">user@cdac.in</option>
+
+</select>
+      
+      
+    </td>
+  </tr>
+
+  <tr>
+    <th><label for="ticket_assigned_to">Ticket assigned to:</label></th>
+    <td>
+      <ul class="errorlist"><li>This field is required.</li></ul>
+      <select name="ticket_assigned_to" class="form-control" id="ticket_assigned_to" autocomplete="off" required>
+  <option value="" selected>---------</option>
+
+  <option value="1">Nobody</option>
+
+</select>
+      
+      
+    </td>
+  </tr>
+
+  <tr>
+    <th><label for="ticket_status">Ticket status:</label></th>
+    <td>
+      <ul class="errorlist"><li>This field is required.</li></ul>
+      <select name="ticket_status" class="form-control" id="ticket_status" autocomplete="off" required>
+  <option value="" selected>---------</option>
+
+  <option value="1">NOTHING</option>
+
+</select>
+      
+      
+    </td>
+  </tr>
+
+  <tr>
+    <th><label>Website technology:</label></th>
+    <td>
+      
+      <div id="id_website_technology"><div>
+    <label for="id_website_technology_0"><input type="checkbox" name="website_technology" value="1" id="id_website_technology_0">
+ Django</label>
+
+</div><div>
+    <label for="id_website_technology_1"><input type="checkbox" name="website_technology" value="2" id="id_website_technology_1" checked>
+ React Node</label>
+
+</div><div>
+    <label for="id_website_technology_2"><input type="checkbox" name="website_technology" value="3" id="id_website_technology_2">
+ Python Django</label>
+
+</div><div>
+    <label for="id_website_technology_3"><input type="checkbox" name="website_technology" value="4" id="id_website_technology_3">
+ Java</label>
+
+</div><div>
+    <label for="id_website_technology_4"><input type="checkbox" name="website_technology" value="5" id="id_website_technology_4">
+ Dot Net</label>
+
+</div><div>
+    <label for="id_website_technology_5"><input type="checkbox" name="website_technology" value="6" id="id_website_technology_5">
+ Nothing</label>
+
+</div>
+</div>
+      
+      
+        
+      
+    </td>
+  </tr>'--None--multipart/form-data--{'boundary': '---------------------------102759131519672162803036050053'}
+06/05/2023 23:37:44--http--127.0.0.1--POST--/user_create_ticket--user@cdac.in---'INVALID DaTA'--None--multipart/form-data--{'boundary': '---------------------------102759131519672162803036050053'}
+06/05/2023 23:47:16--http--127.0.0.1--POST--/user_create_ticket--user@cdac.in---'<tr>
+    <th><label for="id_websitename">Enter Website Name:</label></th>
+    <td>
+      
+      <input type="text" name="websitename" value="Bhahsanet ki website" style="border-color:grey" placeholder="Enter Website  Name" class="form-control form-control-lg" autocomplete="off" maxlength="100" required id="id_websitename">
+      
+      
+    </td>
+  </tr>
+
+  <tr>
+    <th><label for="id_websiteurl">Enter Website URL:</label></th>
+    <td>
+      
+      <input type="text" name="websiteurl" value="bhashanet.in" style="border-color:grey" placeholder="Enter Website URL" class="form-control form-control-lg" autocomplete="off" maxlength="100" required id="id_websiteurl">
+      
+      
+    </td>
+  </tr>
+
+  <tr>
+    <th><label for="id_website_description">Enter Website URL:</label></th>
+    <td>
+      
+      <input type="text" name="website_description" value="dasdasdasda" style="border-color:grey" placeholder="Enter Website URL" class="form-control form-control-lg" autocomplete="off" maxlength="100" required id="id_website_description">
+      
+      
+    </td>
+  </tr>
+
+  <tr>
+    <th><label for="website_category">Website category:</label></th>
+    <td>
+      
+      <select name="website_category" class="form-control" id="website_category" autocomplete="off" required>
+  <option value="">---------</option>
+
+  <option value="1">Central Gov</option>
+
+  <option value="2" selected>State Gov</option>
+
+  <option value="3">Private GOV</option>
+
+</select>
+      
+      
+    </td>
+  </tr>
+
+  <tr>
+    <th><label for="Issue_Related_To">Issue related to:</label></th>
+    <td>
+      
+      <select name="Issue_Related_To" class="form-control" id="Issue_Related_To" autocomplete="off" required>
+  <option value="">---------</option>
+
+  <option value="1" selected>DOmain Name UA issue</option>
+
+  <option value="2">Translation issue</option>
+
+  <option value="3">Web server issue</option>
+
+  <option value="4">SSL issue</option>
+
+</select>
+      
+      
+    </td>
+  </tr>
+
+  <tr>
+    <th><label for="id_ticket_remark">Enter Ticket Remark:</label></th>
+    <td>
+      <ul class="errorlist"><li>This field is required.</li></ul>
+      <input type="text" name="ticket_remark" style="border-color:grey" placeholder="Enter Remark" class="form-control form-control-lg" autocomplete="off" maxlength="100" required id="id_ticket_remark">
+      
+      
+    </td>
+  </tr>
+
+  <tr>
+    <th><label for="id_ticket_raised_by">Ticket raised by:</label></th>
+    <td>
+      
+      <select name="ticket_raised_by" id="id_ticket_raised_by">
+  <option value="" selected>---------</option>
+
+  <option value="1">sanjayb</option>
+
+  <option value="2">user@cdac.in</option>
+
+</select>
+      
+      
+    </td>
+  </tr>
+
+  <tr>
+    <th><label for="ticket_assigned_to">Ticket assigned to:</label></th>
+    <td>
+      <ul class="errorlist"><li>This field is required.</li></ul>
+      <select name="ticket_assigned_to" class="form-control" id="ticket_assigned_to" autocomplete="off" required>
+  <option value="" selected>---------</option>
+
+  <option value="1">Nobody</option>
+
+</select>
+      
+      
+    </td>
+  </tr>
+
+  <tr>
+    <th><label for="ticket_status">Ticket status:</label></th>
+    <td>
+      <ul class="errorlist"><li>This field is required.</li></ul>
+      <select name="ticket_status" class="form-control" id="ticket_status" autocomplete="off" required>
+  <option value="" selected>---------</option>
+
+  <option value="1">NOTHING</option>
+
+</select>
+      
+      
+    </td>
+  </tr>
+
+  <tr>
+    <th><label>Website technology:</label></th>
+    <td>
+      
+      <div id="id_website_technology"><div>
+    <label for="id_website_technology_0"><input type="checkbox" name="website_technology" value="1" id="id_website_technology_0">
+ Django</label>
+
+</div><div>
+    <label for="id_website_technology_1"><input type="checkbox" name="website_technology" value="2" id="id_website_technology_1" checked>
+ React Node</label>
+
+</div><div>
+    <label for="id_website_technology_2"><input type="checkbox" name="website_technology" value="3" id="id_website_technology_2">
+ Python Django</label>
+
+</div><div>
+    <label for="id_website_technology_3"><input type="checkbox" name="website_technology" value="4" id="id_website_technology_3">
+ Java</label>
+
+</div><div>
+    <label for="id_website_technology_4"><input type="checkbox" name="website_technology" value="5" id="id_website_technology_4">
+ Dot Net</label>
+
+</div><div>
+    <label for="id_website_technology_5"><input type="checkbox" name="website_technology" value="6" id="id_website_technology_5">
+ Nothing</label>
+
+</div>
+</div>
+      
+      
+        
+      
+    </td>
+  </tr>'--None--multipart/form-data--{'boundary': '---------------------------284621521710405645661692932933'}
+06/05/2023 23:47:17--http--127.0.0.1--POST--/user_create_ticket--user@cdac.in---'INVALID DaTA'--None--multipart/form-data--{'boundary': '---------------------------284621521710405645661692932933'}

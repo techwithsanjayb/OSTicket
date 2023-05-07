@@ -36,5 +36,7 @@ urlpatterns = [
 
 
     path('view_tickets_list', view_tickets_list, name="view_tickets_list"),
+    path('assign_ticket/<int:id>', assign_ticket, name="assign_ticket"),
+
 
 ]
