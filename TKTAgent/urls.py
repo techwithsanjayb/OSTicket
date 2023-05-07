@@ -1,12 +1,12 @@
 from django.contrib import admin
 from django.urls import path, include
-from .views import *
+from TKTAgent.views import *
 
 app_name = 'TKTAgent'
 
 urlpatterns = [
-    # path('', home, name="home"),
     path('agent_login', agent_login, name="agent_login"),
-    # path('admin_dashboard', admin_dashboard, name="admin_dashboard"),
-    # path('admin_logout', admin_logout, name="admin_logout"),
-    ]
+    path('agent_dashboard', agent_dashboard, name="agent_dashboard"),
+    path('view_tickets_list_agent', view_tickets_list_agent, name="view_tickets_list_agent"),
+    path('agent_resolve_ticket/<int:id>', agent_resolve_ticket, name="agent_resolve_ticket"),
+]

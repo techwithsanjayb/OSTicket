@@ -1,0 +1,68 @@
+{% extends 'TKTUsers/base.html' %}
+{% load static %}
+{% block agent_dashboard %}
+
+<div class="container-xxl py-5">
+    <div class="container">
+        <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+            <h6 class="section-title bg-white text-center text-primary px-3">
+                Agent Dashboard
+            </h6>
+            <h1 class="mb-5">Agent Dashboard</h1>
+        </div>
+        <div>
+            <h4>Welcome {{request.user.email}}</h4>
+            {% if messages %} {% for message in messages %}
+            <p {% if message.tags %} class="alert alert-{{message.tags}}" {% endif %}>
+                {{message}}
+            </p>
+            {% endfor %} {% endif %}
+        </div>
+
+        <div class="row g-5">
+
+
+            <div class="col-lg-6 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
+                <div
+                        class="service-item text-center pt-3"
+                        style="box-shadow: 12px 12px 8px -3px #7c3e6673"
+                >
+                    <div class="p-4">
+                        <i class="fa fa-3x fa fa-folder text-primary mb-4"></i>
+                        <a href="{% url 'TKTAgent:view_tickets_list_agent' %}">
+                            <h4 class="mb-3">View Tickets</h4>
+                        </a>
+                        <a href="{% url 'TKTAgent:view_tickets_list_agent' %}">
+                            <h5 class="mb-3">Details</h5>
+                        </a>
+                    </div>
+
+
+
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
+                <div
+                        class="service-item text-center pt-3"
+                        style="box-shadow: 12px 12px 8px -3px #7c3e6673"
+                >
+                    <div class="p-4">
+                        <i class="fa fa-3x fa fa-folder text-primary mb-4"></i>
+                        <a href="{% url 'TKTAdmin:admin_logout'%}">
+                            <h4 class="mb-3">Logout</h4>
+                        </a>
+                        <a href="#">
+                            <h5 class="mb-3">Logout</h5>
+                        </a>
+                    </div>
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
